@@ -16,7 +16,7 @@ public class PostController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/api/posts/get/{idPost}")]
+    [Route("/api/post/{idPost}")]
     public async Task<IActionResult> get(int idPost)
     {
         PostDto post = null;
@@ -39,7 +39,7 @@ public class PostController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/api/posts/getAll")]
+    [Route("/api/post")]
     public async Task<IActionResult> getAll()
     {
         List<PostDto> posts = null;
@@ -56,7 +56,7 @@ public class PostController : ControllerBase
     }
 
     [HttpPost]
-    [Route("/api/posts/add")]
+    [Route("/api/post")]
     public async Task<IActionResult> Add(PostDto postDto)
     {
         int postId = 0;
@@ -72,7 +72,7 @@ public class PostController : ControllerBase
     }
 
     [HttpPut]
-    [Route("/api/posts/update")]
+    [Route("/api/post")]
     public async Task<IActionResult> Update(PostDto postDto)
     {
         try
@@ -87,12 +87,12 @@ public class PostController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("/api/posts/delete/{idPost}")]
-    public async Task<IActionResult> Delete(int idPost)
+    [Route("/api/post/{id}")]
+    public async Task<IActionResult> Delete(int id)
     {
         try
         {
-            await _blogService.Delete(idPost);
+            await _blogService.Delete(id);
         }
         catch (Exception ex)
         {
